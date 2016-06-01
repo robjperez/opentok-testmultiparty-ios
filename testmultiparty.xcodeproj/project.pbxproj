@@ -13,6 +13,8 @@
 		F8678DCE1CF85F0800AA9FE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8678DCC1CF85F0800AA9FE2 /* Main.storyboard */; };
 		F8678DD01CF85F0800AA9FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8678DCF1CF85F0800AA9FE2 /* Assets.xcassets */; };
 		F8678DD31CF85F0800AA9FE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8678DD11CF85F0800AA9FE2 /* LaunchScreen.storyboard */; };
+		F8C41E8B1CFD8E68002CFF63 /* AudioInUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C41E8A1CFD8E68002CFF63 /* AudioInUse.swift */; };
+		F8C41E8E1CFD8FDA002CFF63 /* OTDefaultAudioDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C41E8D1CFD8FDA002CFF63 /* OTDefaultAudioDevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,9 @@
 		F8678DD21CF85F0800AA9FE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8678DD41CF85F0800AA9FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8678DDA1CF860F400AA9FE2 /* testmultiparty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "testmultiparty-Bridging-Header.h"; sourceTree = "<group>"; };
+		F8C41E8A1CFD8E68002CFF63 /* AudioInUse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioInUse.swift; sourceTree = "<group>"; };
+		F8C41E8C1CFD8FDA002CFF63 /* OTDefaultAudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTDefaultAudioDevice.h; sourceTree = "<group>"; };
+		F8C41E8D1CFD8FDA002CFF63 /* OTDefaultAudioDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTDefaultAudioDevice.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +91,9 @@
 				F8678DD11CF85F0800AA9FE2 /* LaunchScreen.storyboard */,
 				F8678DD41CF85F0800AA9FE2 /* Info.plist */,
 				F8678DDA1CF860F400AA9FE2 /* testmultiparty-Bridging-Header.h */,
+				F8C41E8A1CFD8E68002CFF63 /* AudioInUse.swift */,
+				F8C41E8C1CFD8FDA002CFF63 /* OTDefaultAudioDevice.h */,
+				F8C41E8D1CFD8FDA002CFF63 /* OTDefaultAudioDevice.m */,
 			);
 			path = testmultiparty;
 			sourceTree = "<group>";
@@ -213,7 +221,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8678DCB1CF85F0800AA9FE2 /* ViewController.swift in Sources */,
+				F8C41E8B1CFD8E68002CFF63 /* AudioInUse.swift in Sources */,
 				F8678DC91CF85F0800AA9FE2 /* AppDelegate.swift in Sources */,
+				F8C41E8E1CFD8FDA002CFF63 /* OTDefaultAudioDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

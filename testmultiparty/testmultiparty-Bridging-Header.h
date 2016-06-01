@@ -10,5 +10,6 @@
 #define testmultiparty_Bridging_Header_h
 
 #import <OpenTok/OpenTok.h>
+#import "OTDefaultAudioDevice.h"
 
 #endif /* testmultiparty_Bridging_Header_h */

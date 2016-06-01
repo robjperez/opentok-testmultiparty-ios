@@ -99,8 +99,14 @@ extension ViewController: OTSessionDelegate {
     func sessionDidConnect(session: OTSession!) {
         print("Session Connected")
         
-        publisher = OTPublisher(delegate: self)
-        session.publish(publisher, error: nil)
+        if !audioInUseByOtherApps() {
+            publisher = OTPublisher(delegate: self)
+            session.publish(publisher, error: nil)
+        } else {
+            print("Audio device was used by another app -> Disconnect")
+            reconnect = true
+            session.disconnect(nil)
+        }
     }
     
     func sessionDidDisconnect(session: OTSession!) {
@@ -118,9 +124,16 @@ extension ViewController: OTSessionDelegate {
     
     func session(session: OTSession!, streamCreated stream: OTStream!) {
         print("Stream created: \(stream.streamId)")
-        let subscriber = OTSubscriber(stream: stream, delegate: self)
-        session.subscribe(subscriber, error: nil)
-        subscribers.append(subscriber)
+        
+        if !audioInUseByOtherApps() {
+            let subscriber = OTSubscriber(stream: stream, delegate: self)
+            session.subscribe(subscriber, error: nil)
+            subscribers.append(subscriber)
+        } else {
+            print("Audio device was used by another app -> Disconnect")
+            reconnect = true
+            session.unpublish(publisher, error: nil)
+        }
     }
     
     func session(session: OTSession!, streamDestroyed stream: OTStream!) {
