@@ -11,5 +11,6 @@
 
 #import <OpenTok/OpenTok.h>
 #import "OTDefaultAudioDevice.h"
+#import "TBExampleVideoCapture.h"
 
 #endif /* testmultiparty_Bridging_Header_h */

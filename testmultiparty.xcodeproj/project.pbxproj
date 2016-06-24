@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		62A6D6E084C01C5C23FBDD5A /* libPods-testmultiparty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 474174AA71990E8CABDBA36D /* libPods-testmultiparty.a */; };
+		F833E8C61D1D22D1005D1F9E /* TBExampleVideoCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = F833E8C51D1D22D1005D1F9E /* TBExampleVideoCapture.m */; };
 		F8678DC91CF85F0800AA9FE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8678DC81CF85F0800AA9FE2 /* AppDelegate.swift */; };
 		F8678DCB1CF85F0800AA9FE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8678DCA1CF85F0800AA9FE2 /* ViewController.swift */; };
 		F8678DCE1CF85F0800AA9FE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8678DCC1CF85F0800AA9FE2 /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 		474174AA71990E8CABDBA36D /* libPods-testmultiparty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testmultiparty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		514AF569CCD3720E9C3BF074 /* Pods-testmultiparty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testmultiparty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testmultiparty/Pods-testmultiparty.debug.xcconfig"; sourceTree = "<group>"; };
 		C0F5999DBE909B3AB986EBF6 /* Pods-testmultiparty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testmultiparty.release.xcconfig"; path = "Pods/Target Support Files/Pods-testmultiparty/Pods-testmultiparty.release.xcconfig"; sourceTree = "<group>"; };
+		F833E8C41D1D22D1005D1F9E /* TBExampleVideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExampleVideoCapture.h; sourceTree = "<group>"; };
+		F833E8C51D1D22D1005D1F9E /* TBExampleVideoCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExampleVideoCapture.m; sourceTree = "<group>"; };
 		F8678DC51CF85F0800AA9FE2 /* testmultiparty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testmultiparty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8678DC81CF85F0800AA9FE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8678DCA1CF85F0800AA9FE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				F8C41E8A1CFD8E68002CFF63 /* AudioInUse.swift */,
 				F8C41E8C1CFD8FDA002CFF63 /* OTDefaultAudioDevice.h */,
 				F8C41E8D1CFD8FDA002CFF63 /* OTDefaultAudioDevice.m */,
+				F833E8C41D1D22D1005D1F9E /* TBExampleVideoCapture.h */,
+				F833E8C51D1D22D1005D1F9E /* TBExampleVideoCapture.m */,
 			);
 			path = testmultiparty;
 			sourceTree = "<group>";
@@ -105,12 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8678DD71CF85F0800AA9FE2 /* Build configuration list for PBXNativeTarget "testmultiparty" */;
 			buildPhases = (
-				EABC74A823B2533293690442 /* 📦 Check Pods Manifest.lock */,
+				EABC74A823B2533293690442 /* [CP] Check Pods Manifest.lock */,
 				F8678DC11CF85F0800AA9FE2 /* Sources */,
 				F8678DC21CF85F0800AA9FE2 /* Frameworks */,
 				F8678DC31CF85F0800AA9FE2 /* Resources */,
-				02DBDC281699A80B8A2C1918 /* 📦 Embed Pods Frameworks */,
-				A9E4480EEC639C3682EA6939 /* 📦 Copy Pods Resources */,
+				02DBDC281699A80B8A2C1918 /* [CP] Embed Pods Frameworks */,
+				A9E4480EEC639C3682EA6939 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,14 +173,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02DBDC281699A80B8A2C1918 /* 📦 Embed Pods Frameworks */ = {
+		02DBDC281699A80B8A2C1918 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,14 +188,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-testmultiparty/Pods-testmultiparty-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A9E4480EEC639C3682EA6939 /* 📦 Copy Pods Resources */ = {
+		A9E4480EEC639C3682EA6939 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,14 +203,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-testmultiparty/Pods-testmultiparty-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EABC74A823B2533293690442 /* 📦 Check Pods Manifest.lock */ = {
+		EABC74A823B2533293690442 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F833E8C61D1D22D1005D1F9E /* TBExampleVideoCapture.m in Sources */,
 				F8678DCB1CF85F0800AA9FE2 /* ViewController.swift in Sources */,
 				F8C41E8B1CFD8E68002CFF63 /* AudioInUse.swift in Sources */,
 				F8678DC91CF85F0800AA9FE2 /* AppDelegate.swift in Sources */,

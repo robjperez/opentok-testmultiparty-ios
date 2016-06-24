@@ -1,3 +1,3 @@
 target 'testmultiparty' do
-	pod 'OpenTok', '2.7.1'
+	pod 'OpenTok', '2.8.2'
 end

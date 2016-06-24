@@ -53,6 +53,25 @@ class ViewController: UICollectionViewController {
         let itemWidth = (width / 2) - flowLayout.minimumInteritemSpacing
         let itemHeight = itemWidth / 1.33
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(capturerError(_:)),
+                                                         name: TBExampleVideoCaptureCannotOpenDeviceNotification,
+                                                         object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(capturerError(_:)),
+                                                         name: TBExampleVideoCaptureCannotCaptureFrames,
+                                                         object: nil)
+    }
+    
+    func capturerError(notification: NSNotification) {
+        switch notification.name {
+        case TBExampleVideoCaptureCannotCaptureFrames:
+            print("Capturer cannot capture frames")
+        case TBExampleVideoCaptureCannotOpenDeviceNotification:
+            print("Capturer cannot open device")
+        default:
+            print("Unkown error")
+        }
     }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -101,6 +120,7 @@ extension ViewController: OTSessionDelegate {
         
         if !audioInUseByOtherApps() {
             publisher = OTPublisher(delegate: self)
+            publisher.videoCapture = TBExampleVideoCapture()
             session.publish(publisher, error: nil)
         } else {
             print("Audio device was used by another app -> Disconnect")
