@@ -36,12 +36,12 @@ class ViewController: UICollectionViewController {
 
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
-    private func connectToSession() {
+    fileprivate func connectToSession() {
         let sessInfo = sessionInfo[idx]
         idx = (idx + 1) % sessionInfo.count
         
         session = OTSession(apiKey: apiKey, sessionId: sessInfo.sid, delegate: self)
-        session.connectWithToken(sessInfo.token, error: nil)
+        session.connect(withToken: sessInfo.token, error: nil)
     }
     
     override func viewDidLoad() {
@@ -55,27 +55,27 @@ class ViewController: UICollectionViewController {
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
     }
     
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
-            return collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
+            return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
         }
         assert(false, "Unexpected kind")
     }
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
      return participants
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("videoCell", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoCell", for: indexPath)
         
         let videoView: UIView = {
-            switch indexPath.row {
+            switch (indexPath as NSIndexPath).row {
             case 0:
                 return publisher.view
             case (let idx):
@@ -88,7 +88,7 @@ class ViewController: UICollectionViewController {
         return cell
     }
     
-    @IBAction func changeSession(sender: AnyObject) {
+    @IBAction func changeSession(_ sender: AnyObject) {
         reconnect = true
         subscribers.forEach { session.unsubscribe($0, error: nil) }
         session.unpublish(publisher, error: nil)
@@ -96,7 +96,7 @@ class ViewController: UICollectionViewController {
 }
 
 extension ViewController: OTSessionDelegate {
-    func sessionDidConnect(session: OTSession!) {
+    func sessionDidConnect(_ session: OTSession!) {
         print("Session Connected")
         
         if !audioInUseByOtherApps() {
@@ -109,7 +109,7 @@ extension ViewController: OTSessionDelegate {
         }
     }
     
-    func sessionDidDisconnect(session: OTSession!) {
+    func sessionDidDisconnect(_ session: OTSession!) {
         print("Session Disconnected")
         
         if reconnect {
@@ -118,17 +118,17 @@ extension ViewController: OTSessionDelegate {
         }
     }
     
-    func session(session: OTSession!, didFailWithError error: OTError!) {
+    func session(_ session: OTSession!, didFailWithError error: OTError!) {
         print("Session Error: \(error)")
     }
     
-    func session(session: OTSession!, streamCreated stream: OTStream!) {
+    func session(_ session: OTSession!, streamCreated stream: OTStream!) {
         print("Stream created: \(stream.streamId)")
         
         if !audioInUseByOtherApps() {
             let subscriber = OTSubscriber(stream: stream, delegate: self)
             session.subscribe(subscriber, error: nil)
-            subscribers.append(subscriber)
+            subscribers.append(subscriber!)
         } else {
             print("Audio device was used by another app -> Disconnect")
             reconnect = true
@@ -136,7 +136,7 @@ extension ViewController: OTSessionDelegate {
         }
     }
     
-    func session(session: OTSession!, streamDestroyed stream: OTStream!) {
+    func session(_ session: OTSession!, streamDestroyed stream: OTStream!) {
         print("Stream Destroyed")
         subscribers = subscribers.filter { $0.stream.streamId != stream.streamId }
         collectionView?.reloadData()
@@ -144,53 +144,53 @@ extension ViewController: OTSessionDelegate {
 }
 
 extension ViewController: OTPublisherDelegate {
-    func publisher(publisher: OTPublisherKit!, streamCreated stream: OTStream!) {
+    func publisher(_ publisher: OTPublisherKit!, streamCreated stream: OTStream!) {
         print("Publsher created")
         publishing = true
     }
     
-    func publisher(publisher: OTPublisherKit!, streamDestroyed stream: OTStream!) {
+    func publisher(_ publisher: OTPublisherKit!, streamDestroyed stream: OTStream!) {
         print("Publsher destroyed")
         publishing = false
         session.disconnect(nil)
     }
     
-    func publisher(publisher: OTPublisherKit!, didFailWithError error: OTError!) {
+    func publisher(_ publisher: OTPublisherKit!, didFailWithError error: OTError!) {
         print("Publish failed \(error)!")
     }
 }
 
 extension ViewController: OTSubscriberDelegate {
-    func subscriberDidConnectToStream(subscriber: OTSubscriberKit!) {
+    func subscriberDidConnect(toStream subscriber: OTSubscriberKit!) {
         print("Subscriber connected")
         collectionView?.reloadData()
     }
     
-    func subscriberVideoDisableWarning(subscriber: OTSubscriberKit!) {
+    func subscriberVideoDisableWarning(_ subscriber: OTSubscriberKit!) {
         
     }
     
-    func subscriberVideoDisableWarningLifted(subscriber: OTSubscriberKit!) {
+    func subscriberVideoDisableWarningLifted(_ subscriber: OTSubscriberKit!) {
         
     }
     
-    func subscriberVideoEnabled(subscriber: OTSubscriberKit!, reason: OTSubscriberVideoEventReason) {
+    func subscriberVideoEnabled(_ subscriber: OTSubscriberKit!, reason: OTSubscriberVideoEventReason) {
         
     }
     
-    func subscriberVideoDisabled(subscriber: OTSubscriberKit!, reason: OTSubscriberVideoEventReason) {
+    func subscriberVideoDisabled(_ subscriber: OTSubscriberKit!, reason: OTSubscriberVideoEventReason) {
         
     }
     
-    func subscriber(subscriber: OTSubscriberKit!, didFailWithError error: OTError!) {
+    func subscriber(_ subscriber: OTSubscriberKit!, didFailWithError error: OTError!) {
         
     }
     
-    func subscriberDidDisconnectFromStream(subscriber: OTSubscriberKit!) {
+    func subscriberDidDisconnect(fromStream subscriber: OTSubscriberKit!) {
         
     }
     
-    func subscriberVideoDataReceived(subscriber: OTSubscriber!) {
+    func subscriberVideoDataReceived(_ subscriber: OTSubscriber!) {
         
     }
 }

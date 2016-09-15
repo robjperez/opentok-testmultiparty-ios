@@ -105,12 +105,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8678DD71CF85F0800AA9FE2 /* Build configuration list for PBXNativeTarget "testmultiparty" */;
 			buildPhases = (
-				EABC74A823B2533293690442 /* 📦 Check Pods Manifest.lock */,
+				EABC74A823B2533293690442 /* [CP] Check Pods Manifest.lock */,
 				F8678DC11CF85F0800AA9FE2 /* Sources */,
 				F8678DC21CF85F0800AA9FE2 /* Frameworks */,
 				F8678DC31CF85F0800AA9FE2 /* Resources */,
-				02DBDC281699A80B8A2C1918 /* 📦 Embed Pods Frameworks */,
-				A9E4480EEC639C3682EA6939 /* 📦 Copy Pods Resources */,
+				02DBDC281699A80B8A2C1918 /* [CP] Embed Pods Frameworks */,
+				A9E4480EEC639C3682EA6939 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,14 +168,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02DBDC281699A80B8A2C1918 /* 📦 Embed Pods Frameworks */ = {
+		02DBDC281699A80B8A2C1918 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,14 +183,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-testmultiparty/Pods-testmultiparty-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A9E4480EEC639C3682EA6939 /* 📦 Copy Pods Resources */ = {
+		A9E4480EEC639C3682EA6939 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,14 +198,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-testmultiparty/Pods-testmultiparty-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EABC74A823B2533293690442 /* 📦 Check Pods Manifest.lock */ = {
+		EABC74A823B2533293690442 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,12 +353,14 @@
 			baseConfigurationReference = C0F5999DBE909B3AB986EBF6 /* Pods-testmultiparty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = testmultiparty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.opentok.testmultiparty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "testmultiparty/testmultiparty-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
